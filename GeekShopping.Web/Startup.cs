@@ -25,8 +25,9 @@ namespace GeekShopping.Web
 		public void ConfigureServices(IServiceCollection services)
 		{
 			//config de injecao para o HttpClient
-			services.AddHttpClient<IProductService,ProductService>(c=> 
-				c.BaseAddress = new Uri(Configuration["ServiceUrls:ProductAPI"]));
+			services.AddHttpClient<IProductService, ProductService>(c =>
+					c.BaseAddress = new Uri(Configuration["ServiceUrls:ProductAPI"])
+				);
 			services.AddControllersWithViews();
 		}
 
