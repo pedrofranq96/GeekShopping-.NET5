@@ -1,6 +1,7 @@
 using AutoMapper;
 using GeekShopping.ProductAPI.Config;
 using GeekShopping.ProductAPI.Model.Context;
+using GeekShopping.ProductAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,9 @@ namespace GeekShopping.ProductAPI
 			services.AddSingleton(mapper);
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+
+			//config do repository
+			services.AddScoped<IProductRepository, ProductRepository>();
 
 			services.AddControllers();
 
