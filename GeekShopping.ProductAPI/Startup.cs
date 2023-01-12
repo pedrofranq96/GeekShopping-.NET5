@@ -1,3 +1,5 @@
+using AutoMapper;
+using GeekShopping.ProductAPI.Config;
 using GeekShopping.ProductAPI.Model.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,11 +29,20 @@ namespace GeekShopping.ProductAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			//configuracao de string:
 			var connection = Configuration["SqlServerConnection:SqlServerConnectionString"];
-
 			services.AddDbContext<SqlServerContext>(options => options.UseSqlServer(connection));
+			
+			
+			//configuracao do AutoMapper
+			IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+			services.AddSingleton(mapper);
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 			services.AddControllers();
+
+			//configuracao do Swagger
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "GeekShopping.ProductAPI", Version = "v1" });
