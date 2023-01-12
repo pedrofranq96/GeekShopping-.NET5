@@ -3,14 +3,16 @@ using GeekShopping.ProductAPI.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GeekShopping.ProductAPI.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    partial class SqlServerContextModelSnapshot : ModelSnapshot
+    [Migration("20230112162133_SeedProductDataTable")]
+    partial class SeedProductDataTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,11 +33,6 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("category_name");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("description");
-
                     b.Property<string>("ImageURL")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)")
@@ -51,6 +48,11 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasColumnType("decimal(38,2)")
                         .HasColumnName("price");
 
+                    b.Property<string>("description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description");
+
                     b.HasKey("Id");
 
                     b.ToTable("product");
@@ -60,28 +62,28 @@ namespace GeekShopping.ProductAPI.Migrations
                         {
                             Id = 2L,
                             CategoryName = "Action Figure",
-                            Description = "Action Figure Star Wars, Storm Tropper Imperial",
                             ImageURL = "https://github.com/leandrocgsi/erudio-microservices-dotnet6/blob/dot_net6_LTS/ShoppingImages/4_storm_tropper.jpg?raw=true",
                             Name = "Star Wars- Storm Tropper 2",
-                            Price = 89.9m
+                            Price = 89.9m,
+                            description = "Action Figure Star Wars, Storm Tropper Imperial"
                         },
                         new
                         {
                             Id = 3L,
                             CategoryName = "Action Figure",
-                            Description = "Action Figure Star Wars, Storm Tropper Imperial",
                             ImageURL = "https://github.com/leandrocgsi/erudio-microservices-dotnet6/blob/dot_net6_LTS/ShoppingImages/4_storm_tropper.jpg?raw=true",
                             Name = "Star Wars- Storm Tropper 3",
-                            Price = 99.9m
+                            Price = 99.9m,
+                            description = "Action Figure Star Wars, Storm Tropper Imperial"
                         },
                         new
                         {
                             Id = 4L,
                             CategoryName = "Action Figure",
-                            Description = "Action Figure Star Wars, General Sith",
                             ImageURL = "https://github.com/leandrocgsi/erudio-microservices-dotnet6/blob/dot_net6_LTS/ShoppingImages/4_storm_tropper.jpg?raw=true",
                             Name = "Star Wars- Dart Vader",
-                            Price = 129.9m
+                            Price = 129.9m,
+                            description = "Action Figure Star Wars, General Sith"
                         });
                 });
 #pragma warning restore 612, 618
