@@ -26,6 +26,5 @@ namespace GeekShopping.ProductAPI.Model
 		[StringLength(300)]
 		public string ImageURL { get; set; }
 
-
 	}
 }
