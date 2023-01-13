@@ -7,6 +7,6 @@ namespace GeekShopping.CartAPI.Data.ValueObject
 	{
 		public CartHeaderVO CartHeader { get; set; }
 
-		public IEnumerable<CartDetailVO> CartDetailVO { get; set; }
+		public IEnumerable<CartDetailVO> CartDetails { get; set; }
 	}
 }
