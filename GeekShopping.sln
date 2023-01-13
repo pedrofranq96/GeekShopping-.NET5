@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{188C5DED-4F1F-4345-9911-645EE350C7DC}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.Web", "GeekSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.ProductAPI", "GeekShopping.ProductAPI\GeekShopping.ProductAPI.csproj", "{634E5702-4C67-4371-8050-B45A282476ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.IdentityServer", "GeekShopping.IdentityServer\GeekShopping.IdentityServer.csproj", "{28B3940D-1CCE-4057-B48E-1046AA8DDB2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekShopping.IdentityServer", "GeekShopping.IdentityServer\GeekShopping.IdentityServer.csproj", "{28B3940D-1CCE-4057-B48E-1046AA8DDB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekShopping.CartAPI", "GeekShopping.CartAPI\GeekShopping.CartAPI.csproj", "{ED96BDA8-34BE-4149-8D90-4DAB971D3B15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{28B3940D-1CCE-4057-B48E-1046AA8DDB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28B3940D-1CCE-4057-B48E-1046AA8DDB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28B3940D-1CCE-4057-B48E-1046AA8DDB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED96BDA8-34BE-4149-8D90-4DAB971D3B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED96BDA8-34BE-4149-8D90-4DAB971D3B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED96BDA8-34BE-4149-8D90-4DAB971D3B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED96BDA8-34BE-4149-8D90-4DAB971D3B15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{4804E0A4-7EFB-438C-ACE0-F58A93730B1A} = {188C5DED-4F1F-4345-9911-645EE350C7DC}
 		{634E5702-4C67-4371-8050-B45A282476ED} = {3C2A1AB2-05EE-43B7-92AF-14D6E6F997A8}
 		{28B3940D-1CCE-4057-B48E-1046AA8DDB2A} = {3C2A1AB2-05EE-43B7-92AF-14D6E6F997A8}
+		{ED96BDA8-34BE-4149-8D90-4DAB971D3B15} = {3C2A1AB2-05EE-43B7-92AF-14D6E6F997A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F40696CD-879D-4E17-9829-FE3E5E5C109E}
