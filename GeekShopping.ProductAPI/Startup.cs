@@ -50,7 +50,7 @@ namespace GeekShopping.ProductAPI
 			//config de autenticacao
 
 			services.AddAuthentication("Bearer")
-				.AddJwtBearer(options=> 
+				.AddJwtBearer("Bearer", options => 
 					{
 						options.Authority = "https://localhost:4435/";
 						options.TokenValidationParameters = new TokenValidationParameters
