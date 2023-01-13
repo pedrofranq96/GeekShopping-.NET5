@@ -37,6 +37,7 @@ namespace IdentityServerHost.Quickstart.UI
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;

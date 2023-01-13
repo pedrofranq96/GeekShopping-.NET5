@@ -1,7 +1,9 @@
+using Duende.IdentityServer.Services;
 using GeekShopping.IdentityServer.Configuration;
 using GeekShopping.IdentityServer.Initializer;
 using GeekShopping.IdentityServer.Model;
 using GeekShopping.IdentityServer.Model.Context;
+using GeekShopping.IdentityServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -49,6 +51,9 @@ namespace GeekShopping.IdentityServer
 
 			//injecao do initializer
 			services.AddScoped<IDbInitializer, DbInitializer>();
+
+			//injecao do ProfileService
+			services.AddScoped<IProfileService, ProfileService>();
 
 			builder.AddDeveloperSigningCredential();
 			services.AddControllersWithViews();
