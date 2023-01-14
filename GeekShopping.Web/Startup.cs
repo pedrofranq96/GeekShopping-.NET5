@@ -24,8 +24,10 @@ namespace GeekShopping.Web
 		{
 			//config de injecao para o HttpClient
 			services.AddHttpClient<IProductService, ProductService>(c =>
-					c.BaseAddress = new Uri(Configuration["ServiceUrls:ProductAPI"])
-				);
+					c.BaseAddress = new Uri(Configuration["ServiceUrls:ProductAPI"]));
+
+			services.AddHttpClient<ICartService, CartService>(c =>
+					c.BaseAddress = new Uri(Configuration["ServiceUrls:CartAPI"]));
 
 
 			//config de autenticacao
