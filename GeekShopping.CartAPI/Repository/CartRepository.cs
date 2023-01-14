@@ -43,9 +43,12 @@ namespace GeekShopping.CartAPI.Repository
 		{
 			Cart cart = new()
 			{
-				CartHeader = await _context.CartHeaders.FirstOrDefaultAsync(c => c.UserId == userId),
+				CartHeader = await _context.CartHeaders
+					.FirstOrDefaultAsync(c => c.UserId == userId) ?? new CartHeader(),
 			};
-			cart.CartDetails = _context.CartDetails.Where(c => c.CartHeaderId == cart.CartHeader.Id).Include(c=>c.Product);
+			cart.CartDetails = _context.CartDetails
+				.Where(c => c.CartHeaderId == cart.CartHeader.Id)
+					.Include(c => c.Product);
 			return _mapper.Map<CartVO>(cart);
 		}
 
@@ -58,22 +61,25 @@ namespace GeekShopping.CartAPI.Repository
 		{
 			try
 			{
-				CartDetail cartDetail = await _context.CartDetails.FirstOrDefaultAsync(c => c.Id == cartDetailsId);
+				CartDetail cartDetail = await _context.CartDetails
+					.FirstOrDefaultAsync(c => c.Id == cartDetailsId);
 
-				int total = _context.CartDetails.Where(c => c.CartHeaderId == cartDetail.CartHeaderId).Count();
+				int total = _context.CartDetails
+					.Where(c => c.CartHeaderId == cartDetail.CartHeaderId).Count();
 
 				_context.CartDetails.Remove(cartDetail);
-				if(total == 1)
+
+				if (total == 1)
 				{
-					var cartHeaderToRemove = await _context.CartHeaders.FirstOrDefaultAsync(c => c.Id == cartDetail.CartHeaderId);
+					var cartHeaderToRemove = await _context.CartHeaders
+						.FirstOrDefaultAsync(c => c.Id == cartDetail.CartHeaderId);
 					_context.CartHeaders.Remove(cartHeaderToRemove);
-					await _context.SaveChangesAsync();
 				}
+				await _context.SaveChangesAsync();
 				return true;
 			}
 			catch (Exception)
 			{
-
 				return false;
 			}
 		}
