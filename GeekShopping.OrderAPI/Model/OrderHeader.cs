@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using GeekShopping.OrderAPI.Model.Base;
 
-namespace GeekShopping.OrderAPI.Model.Base
+namespace GeekShopping.OrderAPI.Model
 {
 	[Table("order_header")]
 	public class OrderHeader : BaseEntity
@@ -36,7 +37,7 @@ namespace GeekShopping.OrderAPI.Model.Base
 		public string ExpireMonthYear { get; set; }
 		[Column("total_itens")]
 		public int CartTotalItens { get; set; }
-		public IEnumerable<OrderDetail> OrderDetails { get; set; }
+		public List<OrderDetail> OrderDetails { get; set; }
 		[Column("payment_status")]
 		public bool PaymentStatus { get; set; }
 	}

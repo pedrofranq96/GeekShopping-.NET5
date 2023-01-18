@@ -1,9 +1,8 @@
-﻿using GeekShopping.CartAPI.Data.ValueObject;
-using GeekShopping.MessageBus;
+﻿using GeekShopping.MessageBus;
 using System;
 using System.Collections.Generic;
 
-namespace GeekShopping.CartAPI.Messages
+namespace GeekShopping.OrderAPI.Messages
 {
 	public class CheckoutHeaderVO : BaseMessage
 	{
@@ -22,5 +21,6 @@ namespace GeekShopping.CartAPI.Messages
 
 		public int CartTotalItens { get; set; }
 		public IEnumerable<CartDetailVO> CartDetails { get; set; }
+
 	}
 }

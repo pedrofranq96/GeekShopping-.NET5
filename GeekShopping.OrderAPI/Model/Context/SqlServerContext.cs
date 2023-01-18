@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GeekShopping.OrderAPI.Model.Base;
+using Microsoft.EntityFrameworkCore;
 
-namespace GeekShopping.OrderAPI.Model.Base
+namespace GeekShopping.OrderAPI.Model.Context
 {
 	public class SqlServerContext : DbContext
 	{
