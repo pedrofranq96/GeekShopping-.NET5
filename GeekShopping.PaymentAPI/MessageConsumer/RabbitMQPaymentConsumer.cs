@@ -1,4 +1,5 @@
 ﻿using GeekShopping.PaymentAPI.Messages;
+using GeekShopping.PaymentAPI.RabbitMQSender;
 using GeekShopping.PaymentProcessor;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
@@ -18,11 +19,12 @@ namespace GeekShopping.PaymentAPI.MessageConsumer
 		private IConnection _connection;
 		private IModel _channel;
 		private readonly IProcessPayment  _processPayment;
+		private IRabbitMQMessageSender _rabbitMQMessageSender;
 
-		public RabbitMQPaymentConsumer(IProcessPayment processPayment)
+		public RabbitMQPaymentConsumer(IProcessPayment processPayment, IRabbitMQMessageSender rabbitMQMessageSender)
 		{
 			_processPayment = processPayment;
-			
+			_rabbitMQMessageSender = rabbitMQMessageSender;
 			var factory = new ConnectionFactory
 			{
 				HostName = "localhost",
@@ -51,9 +53,17 @@ namespace GeekShopping.PaymentAPI.MessageConsumer
 
 		private async Task ProcessPayment(PaymentMessage vo)
 		{
+			var result = _processPayment.PaymentProcessor();
+
+			UpdatePaymentResultMessage paymentResult = new()
+			{
+				Status = result,
+				OrderId = vo.OrderId,
+				Email = vo.Email
+			};
 			try
 			{
-				//_rabbitMQMessageSender.SendMessage(payment, "orderpaymentprocessqueue");
+				_rabbitMQMessageSender.SendMessage(paymentResult, "orderpaymentresultqueue");
 			}
 			catch (Exception)
 			{
